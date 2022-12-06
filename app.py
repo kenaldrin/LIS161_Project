@@ -14,27 +14,37 @@ def index():
                 </ul>
     """
 
-@app.route('/animals/pet_type')
-def animals(pet_type):
+@app.route('/animals/<pet_type>')
+def animals(pet_type): 
     html = "<h1>List of {}</h1>".format(pet_type)
-
+   
     html += "<ul>"
-
-    for pet in pets[pet_type]:
-        html += "<li><a href='{n}'></a></li>".format(n = pet["name"])
+    
+    #Step 16: enumerate loop and turn list into a link
+    for i, pet in enumerate(pets[pet_type]): 
+        html += "<li><a href='/animals/{a}/{b}'>{c}</a></li>".format(a=pet_type, b=i, c=pet["name"])
 
     html += "</ul>"
 
     return html
 
 
-@app.route('/animals/pet_type/int:pet_id')
+#Step 13: Define function and route
+@app.route('/animals/<pet_type>/<int:pet_id>')
 def pet(pet_type, pet_id):
-    pet = pets[pet_type][pet_id]
+    pet = pets[pet_type][pet_id] #Step 14: Access list in dictionary
 
-    return "<h1>{}</h1>".format(pet)
-    
+    #Step 15: Return pet name
+    #Step 17: Return pet img, description, breed, and age
+    return f""" <h1>{pet['name']}</h1> 
+                <img src={pet['url']} alt='alt text'>
+                <p>{pet['description']}</p>
+                <ul>
+                    <li>{pet['breed']}</li>
+                    <li>{pet['age']}</li>
+                </ul>
+    """
+
 
 if __name__ == "__main__":
     app.run(debug=True)
-welp
