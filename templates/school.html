@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Education    
+{% endblock %}
+
+{% block content %}
+
+    <h1>EDUCATION</h1>
+
+    {% for school in schoolList %}
+        <div class="list-content">
+            <h6>{{ school.name }}</h6>
+            <p>{{ school.course }}</p>
+            <p>{{ school.description }}</p>
+            <hr>
+        </div>
+        
+    {% endfor %}
+
+{% endblock %}

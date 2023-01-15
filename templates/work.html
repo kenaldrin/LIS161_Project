@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Work Experience
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>WORK EXPERIENCE</h1>
+
+    {% for work in workList %}
+        <div class="list-content">
+            <h6>{{ work.name }} - {{ work.duration }} months</h6>
+            <p>Position: {{ work.title }}</p>
+            <p>Job Description: {{ work.description }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+
+{% endblock %}

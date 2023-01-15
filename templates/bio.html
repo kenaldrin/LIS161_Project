@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Contact Me
+{% endblock %}
+
+{% block content %}
+    <h1>CONTACT ME</h1>
+    <div class="list-content">
+        <p>Address: {{ bio.address }}</p>
+        <p>E-mail: {{ bio.email }}</p>
+        <p>Mobile: {{ bio.mobile }}</p>
+        <p><a href="{{ url_for('static', filename='resume.pdf') }}" download>Download my latest resume here</a></p>
+        <hr>
+        <p>Follow me on socials!</p>
+        <div class="row">
+
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <p>Facebook</p>
+                <a class="thumbnail" href="{{ bio.facebook }}"><img class="img-responsive" src="{{ url_for('static', filename='img/fb.png') }}"></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <p>Instagram</p>
+                <a class="thumbnail" href="{{ bio.instagram }}"><img class="img-responsive" src="{{ url_for('static', filename='img/ig.png') }}"></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4 thumb">
+                <p>Linkedin</p>
+                <a class="thumbnail" href="{{ bio.linkedin }}"><img class="img-responsive" src="{{ url_for('static', filename='img/linkedin.png') }}"></a>
+            </div>
+        </div>
+        <hr>
+    </div>
+{% endblock %}

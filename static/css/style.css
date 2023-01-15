@@ -1,0 +1,65 @@
+body {
+    background-color: #deb887;
+}
+
+footer {
+    font-size: 14px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: auto;
+  }
+
+h3, h6, p {
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: Impact, serif;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+img {
+    display:block; 
+    width:25%; 
+    margin: auto;
+}
+
+.project-img {
+    display:block; 
+    width:75%; 
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.home-content {
+    margin-top: 50px;
+}
+
+.home-caption {
+    background-color: #deb887;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+.list-content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.social-logos {
+    padding: 0px;
+    width: 10%;
+}
+
+.row {
+    padding: 0px;
+    margin: auto;
+}
+
+hr {
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+  }

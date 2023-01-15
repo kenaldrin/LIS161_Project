@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Affiliates
+{% endblock %}
+
+{% block content %}
+
+    <h1>ORG PAGE</h1>
+
+    {% for affiliate in affiliateList %}
+    
+        <div class="list-content">
+            <img class="project-img" src="/static/img/{{ affiliate.url }}" alt="Affiliate Photo">
+            <h6>{{ affiliate.name }}</h6>
+            <p>{{ affiliate.description }}</p>
+            <hr>
+        </div>
+    
+    {% endfor %}
+
+{% endblock %}

@@ -1,50 +1,35 @@
-from flask import Flask
-from data import pets
-
+from flask import Flask, render_template
+from workData import workList
+from schoolData import schoolList
+from affiliateData import affiliateList
+from bioData import bio
+from projectData import projectList
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return """<h1>Adopt a Pet!</h1> 
-                <p>Browse through the links below to find your new furry friend:</p>
-                <ul>
-                    <li><a href="/animals/dogs">Dogs</a></li>
-                    <li><a href="/animals/cats">Cats</a></li>
-                    <li><a href="/animals/rabbits">Rabbits</a></li>
-                </ul>
-    """
+@app.route('/home')
+def home_page():
+    return render_template('home.html')
 
-@app.route('/animals/<pet_type>')
-def animals(pet_type): 
-    html = "<h1>List of {}</h1>".format(pet_type)
-   
-    html += "<ul>"
-    
-    #Step 16: enumerate loop and turn list into a link
-    for i, pet in enumerate(pets[pet_type]): 
-        html += "<li><a href='/animals/{a}/{b}'>{c}</a></li>".format(a=pet_type, b=i, c=pet["name"])
+@app.route('/work')
+def work_page(): 
+    return render_template('work.html', workList=workList)
 
-    html += "</ul>"
+@app.route('/school')
+def school_page(): 
+    return render_template('school.html', schoolList=schoolList)
 
-    return html
+@app.route('/affiliate')
+def affiliate_page(): 
+    return render_template('affiliate.html', affiliateList=affiliateList)
 
+@app.route('/project')
+def project_page(): 
+    return render_template('project.html', projectList=projectList)
 
-#Step 13: Define function and route
-@app.route('/animals/<pet_type>/<int:pet_id>')
-def pet(pet_type, pet_id):
-    pet = pets[pet_type][pet_id] #Step 14: Access list in dictionary
-
-    #Step 15: Return pet name
-    #Step 17: Return pet img, description, breed, and age
-    return f""" <h1>{pet['name']}</h1> 
-                <img src={pet['url']} alt='alt text'>
-                <p>{pet['description']}</p>
-                <ul>
-                    <li>{pet['breed']}</li>
-                    <li>{pet['age']}</li>
-                </ul>
-    """
-
+@app.route('/bio')
+def bio_page(): 
+    return render_template('bio.html', bio=bio)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+    <div class="home-content">
+        <img src="{{ url_for('static', filename='img/ken.jpg') }}" alt="My Photo">
+
+        <div class="home-caption">
+            <hr>
+            <h1>Aldrin Ken Ong</h1>
+            <h4>Library and Information Science</h3>
+            <p>Can apply a range of skills to cater to your organizational needs. Motivated through productive contribution, learning, and building good rapport among colleagues.</p>    
+        </div>
+    </div>
+
+{% endblock %}
